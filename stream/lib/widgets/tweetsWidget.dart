@@ -36,6 +36,10 @@ class TweetsState extends State<TweetsWidget> {
     );
   }
 
+  void _pushMy() {
+    Navigator.of(context, rootNavigator: true).pushNamed('/my');
+  }
+
   Widget createCell({tweet: Tweet}) {
     final avatar = Container(
       width: 44,
@@ -44,13 +48,12 @@ class TweetsState extends State<TweetsWidget> {
       margin: EdgeInsets.only(left: 12.0, right: 8.0),
 
       decoration: BoxDecoration(
-        color: Colors.blue,
         borderRadius: BorderRadius.circular(22.0)
       ),
 
       child: CupertinoButton(
         child: Image.network(tweet.avatarURL),
-        onPressed: null,
+        onPressed: _pushMy
       ),
       
     );

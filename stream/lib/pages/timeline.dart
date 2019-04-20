@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import '../widgets/tweetsWidget.dart';
+
 class Timeline extends StatelessWidget {
 
   @override
