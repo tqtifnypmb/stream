@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'pages/home.dart';
 import 'pages/my.dart';
 
@@ -8,7 +8,7 @@ class Stream extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoApp(
+    return MaterialApp(
       title: 'Stream',
 
       initialRoute: '/',

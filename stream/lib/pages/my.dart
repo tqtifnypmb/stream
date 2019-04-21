@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import '../widgets/tweetsWidget.dart';
 
 class My extends StatefulWidget {
@@ -22,11 +22,13 @@ class MyState extends State<My> {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(
-        middle: Text('My'),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('My'),
+        backgroundColor: Colors.lightBlue,
       ),
-      child: TweetsWidget()
+
+      body: TweetsWidget(),
     );
   }
 

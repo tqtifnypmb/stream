@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import '../redux/store.dart';
 import '../redux/state.dart';
 
@@ -51,8 +50,8 @@ class TweetsState extends State<TweetsWidget> {
         borderRadius: BorderRadius.circular(22.0)
       ),
 
-      child: CupertinoButton(
-        child: Image.network(tweet.avatarURL),
+      child: IconButton(
+        icon: Image.network(tweet.avatarURL),
         onPressed: _pushMy
       ),
       
@@ -64,7 +63,7 @@ class TweetsState extends State<TweetsWidget> {
       children: <Widget>[
         Text(tweet.senderName),
 
-        CupertinoButton(
+        FlatButton(
           child: Text('more'),
           onPressed: null,
         )

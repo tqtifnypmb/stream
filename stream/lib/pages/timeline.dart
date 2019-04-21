@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import '../widgets/tweetsWidget.dart';
 
 class Timeline extends StatelessWidget {
@@ -9,16 +9,21 @@ class Timeline extends StatelessWidget {
   }
 
   Widget _createTabView() {
-    return CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(
-        middle: Text('data'),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Timeline'),
+        backgroundColor: Colors.lightBlue,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.headset),
+          ),
+
+          IconButton(
+            icon: Icon(Icons.dashboard),
+          )
+        ],
       ),
-      
-      child: CupertinoTabView(
-        builder: (BuildContext context) {
-          return TweetsWidget();
-        }
-      ),
-    ); 
+      body: TweetsWidget(),
+    );
   }
 }
