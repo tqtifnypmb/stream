@@ -16,10 +16,12 @@ class Timeline extends StatelessWidget {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.headset),
+            onPressed: null,
           ),
 
           IconButton(
             icon: Icon(Icons.dashboard),
+            onPressed: null,
           )
         ],
       ),

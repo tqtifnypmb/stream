@@ -36,7 +36,7 @@ class TweetsState extends State<TweetsWidget> {
   }
 
   void _pushMy() {
-    Navigator.of(context, rootNavigator: true).pushNamed('/my');
+    Navigator.of(context, rootNavigator: true).pushNamed('/profile');
   }
 
   Widget createCell({tweet: Tweet}) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'pages/home.dart';
-import 'pages/my.dart';
+import 'pages/profile.dart';
 
 void main() => runApp(Stream());
 
@@ -14,7 +14,7 @@ class Stream extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => Home(),
-        '/my': (context) => My(),
+        '/profile': (context) => Profile(),
       },
     );
   }
