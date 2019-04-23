@@ -47,6 +47,7 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin {
     return TabBar(
       controller: _tabController,
       indicatorSize: TabBarIndicatorSize.label,
+      indicatorColor: Colors.white,
       tabs: <Widget>[
         Tab(
           icon: Icon(
