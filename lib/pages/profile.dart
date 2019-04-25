@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import '../widgets/tweetsWidget.dart';
+import '../widgets/tweetCell.dart';
+import '../redux/store.dart';
+import '../redux/state.dart';
 
 class Profile extends StatefulWidget {
 
@@ -13,13 +15,17 @@ class ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
   
   ScrollController _scrollController;
   TabController _tabController;
-
+  List<Tweet> _tweets = [];
+  
   @override
   void initState() {
     _scrollController = ScrollController();
     _scrollController.addListener(this._scrollListener);
 
     _tabController = TabController(length: 4, vsync: this);
+
+    Store.shared.register(listener: this._storeChanged);
+    this._storeChanged();
     super.initState();
   }
 
@@ -99,28 +105,38 @@ class ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
     final overlayInjector = SliverOverlapInjector(
       handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
     );
-
     final sliverPadding = SliverPadding(
       padding: const EdgeInsets.all(8.0),
       sliver: SliverList(
-        delegate: SliverChildListDelegate([
-          Center( child: Text('fff')),///TweetsWidget(),
-          Center( child: Text('fff')),
-          Center( child: Text('fff')),
-          Center( child: Text('fff'))
-        ])
-      ),
+        delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
+            final tweet = _tweets[index];
+            return TweetCell(tweet);
+          },
+
+          childCount: this._tweets.length), 
+        ),
     );
 
-    return CustomScrollView(
+    final scrollView = CustomScrollView(
       slivers: <Widget>[
         overlayInjector,
         sliverPadding
       ],
     );
+
+    return Material(
+      child: scrollView
+    );
   }
 
   void _scrollListener() {
 
+  }
+
+  void _storeChanged() {
+    final newTweets = Store.shared.getState().timelines();
+    this.setState(() {
+      _tweets = newTweets;
+    });
   }
 }

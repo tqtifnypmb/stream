@@ -7,11 +7,11 @@ class TweetsWidget extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    return TweetsState();
+    return _TweetsState();
   }
 }
 
-class TweetsState extends State<TweetsWidget> {
+class _TweetsState extends State<TweetsWidget> {
 
   List<Tweet> _tweets = [];
 

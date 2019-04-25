@@ -10,17 +10,17 @@ class TweetCell extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    return TweetCellState(tweet, onAvatarClicked: onAvatarClicked);
+    return _TweetCellState(tweet, onAvatarClicked: onAvatarClicked);
   }
 }
 
-class TweetCellState extends State<TweetCell> {
+class _TweetCellState extends State<TweetCell> {
 
   final Tweet tweet;
   final _VoidCallback onAvatarClicked;
   List<Future<Image>> imageFutures;
 
-  TweetCellState(this.tweet, { this.onAvatarClicked }): imageFutures = [];
+  _TweetCellState(this.tweet, { this.onAvatarClicked }): imageFutures = [];
 
   @override
   void initState() {
